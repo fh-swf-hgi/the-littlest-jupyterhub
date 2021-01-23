@@ -13,11 +13,6 @@ from tljh.user_creating_spawner import UserCreatingSpawner
 from jupyterhub_traefik_proxy import TraefikTomlProxy
 
 
-c.JupyterHub.authenticator_class = 'ltiauthenticator.LTIAuthenticator'
-c.LTIAuthenticator.consumers = {
-       "5769a1a29a1b101ffdaa06048793c59b19b4c252eb651d03872048a30f8db283": "c732af9c6235cc8530d24bcab00a0e70704ac550cd0434a3d1a298e124bbd590"
-}
-
 c.JupyterHub.spawner_class = UserCreatingSpawner
 
 # leave users running when the Hub restarts
@@ -51,3 +46,8 @@ pm.hook.tljh_custom_jupyterhub_config(c=c)
 extra_configs = sorted(glob(os.path.join(CONFIG_DIR, 'jupyterhub_config.d', '*.py')))
 for ec in extra_configs:
     load_subconfig(ec)
+
+c.JupyterHub.authenticator_class = 'ltiauthenticator.LTIAuthenticator'
+c.LTIAuthenticator.consumers = {
+       "5769a1a29a1b101ffdaa06048793c59b19b4c252eb651d03872048a30f8db283": "c732af9c6235cc8530d24bcab00a0e70704ac550cd0434a3d1a298e124bbd590"
+}
