@@ -17,3 +17,4 @@ ipywidgets==7.5.*
 tornado<6
 # hgi
 jupyterhub-ltiauthenticator
+nbgrader
