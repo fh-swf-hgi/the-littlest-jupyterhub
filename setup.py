@@ -19,7 +19,8 @@ setup(
         'requests',
         'bcrypt',
         'jupyterhub-traefik-proxy==0.1.*',
-        'jupyterhub-ltiauthenticator'
+        'jupyterhub-ltiauthenticator',
+        'nbgrader'
     ],
     entry_points={
         'console_scripts': [
