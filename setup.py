@@ -18,7 +18,8 @@ setup(
         'backoff',
         'requests',
         'bcrypt',
-        'jupyterhub-traefik-proxy==0.1.*'
+        'jupyterhub-traefik-proxy==0.1.*',
+        'jupyterhub-ltiauthenticator'
     ],
     entry_points={
         'console_scripts': [
