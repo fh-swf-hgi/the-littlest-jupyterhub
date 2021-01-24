@@ -321,7 +321,8 @@ def main():
             'tljh.installer',
         ] + flags
     )
-    
+
+    logger.info('Setup nbextensions')    
     run_subprocess([
         os.path.join(user_prefix, 'bin', 'jupyter'),
         'nbextension',
@@ -331,8 +332,8 @@ def main():
         'nbgrader',
         '--overwrite'
     ])
-    logger.info('Setup nbextensions')
 
+    logger.info('Enable nbextensions')
     run_subprocess([
         os.path.join(user_prefix, 'bin', 'jupyter'),
         'nbextension',
@@ -341,8 +342,8 @@ def main():
         '--py',
         'nbgrader'
     ])
-    logger.info('Enable nbextensions')
     
+    logger.info('Enable serverextension')
     run_subprocess([
         os.path.join(user_prefix, 'bin', 'jupyter'),
         'serverextension',
@@ -351,7 +352,6 @@ def main():
         '--py',
         'nbgrader'
     ])
-    logger.info('Enable serverextension')
     
 
 if __name__ == '__main__':
