@@ -236,6 +236,7 @@ def main():
     validate_host()
     install_prefix = os.environ.get('TLJH_INSTALL_PREFIX', '/opt/tljh')
     hub_prefix = os.path.join(install_prefix, 'hub')
+    user_prefix = os.path.join(install_prefix, 'user')
 
     # Set up logging to print to a file and to stderr
     os.makedirs(install_prefix, exist_ok=True)
@@ -320,6 +321,37 @@ def main():
             'tljh.installer',
         ] + flags
     )
+    
+    run_subprocess([
+        os.path.join(user_prefix, 'bin', 'jupyter'),
+        'nbextension',
+        'install',
+        '--sys-prefix',
+        '--py nbgrader',
+        '--overwrite'
+    ])
+    logger.info('Setup nbextensions')
+
+    run_subprocess([
+        os.path.join(user_prefix, 'bin', 'jupyter'),
+        'nbextension',
+        'enable',
+        '--sys-prefix',
+        '--py',
+        'nbgrader'
+    ])
+    logger.info('Enable nbextensions')
+    
+    run_subprocess([
+        os.path.join(user_prefix, 'bin', 'jupyter'),
+        'serverextension',
+        'enable',
+        '--sys-prefix',
+        '--py',
+        'nbgrader'
+    ])
+    logger.info('Enable serverextension')
+    
 
 if __name__ == '__main__':
     main()
