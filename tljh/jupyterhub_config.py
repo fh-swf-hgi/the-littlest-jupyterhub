@@ -49,7 +49,6 @@ for ec in extra_configs:
 
 c.JupyterHub.ssl_key = '/etc/letsencrypt/live/fh.swfcloud.de/privkey.pem'
 c.JupyterHub.ssl_cert = '/etc/letsencrypt/live/fh.swfcloud.de/fullchain.pem'
-public https port
 c.JupyterHub.port = 443
   
 c.JupyterHub.authenticator_class = 'ltiauthenticator.LTIAuthenticator'
