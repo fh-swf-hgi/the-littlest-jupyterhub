@@ -327,7 +327,8 @@ def main():
         'nbextension',
         'install',
         '--sys-prefix',
-        '--py nbgrader',
+        '--py',
+        'nbgrader',
         '--overwrite'
     ])
     logger.info('Setup nbextensions')
