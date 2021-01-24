@@ -313,14 +313,12 @@ def main():
     
 
     logger.info('Starting TLJH installer...')
-    os.execv(
+    #os.execv(
+    run_subprocess([
         os.path.join(hub_prefix, 'bin', 'python3'),
-        [
-            os.path.join(hub_prefix, 'bin', 'python3'),
-            '-m',
-            'tljh.installer',
-        ] + flags
-    )
+        '-m',
+        'tljh.installer',
+    ] + flags)
 
     logger.info('Setup nbextensions')    
     run_subprocess([
