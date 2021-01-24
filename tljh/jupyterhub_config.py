@@ -47,6 +47,11 @@ extra_configs = sorted(glob(os.path.join(CONFIG_DIR, 'jupyterhub_config.d', '*.p
 for ec in extra_configs:
     load_subconfig(ec)
 
+c.JupyterHub.ssl_key = '/etc/letsencrypt/live/fh.swfcloud.de/privkey.pem'
+c.JupyterHub.ssl_cert = '/etc/letsencrypt/live/fh.swfcloud.de/fullchain.pem'
+public https port
+c.JupyterHub.port = 443
+  
 c.JupyterHub.authenticator_class = 'ltiauthenticator.LTIAuthenticator'
 c.LTIAuthenticator.consumers = {
        "5769a1a29a1b101ffdaa06048793c59b19b4c252eb651d03872048a30f8db283": "c732af9c6235cc8530d24bcab00a0e70704ac550cd0434a3d1a298e124bbd590"
